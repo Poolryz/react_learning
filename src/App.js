@@ -6,18 +6,23 @@ import About from "./pages/About";
 import Posts from "./pages/Posts";
 import Navbar from "./components/UI/Navbar/Navbar";
 import PostIdPage from "./pages/PostIdPage";
+import {routers} from "./router/routers";
 
 function App() {
 
     return (
         <BrowserRouter>
             <Navbar/>
-                <Routes>
-                    <Route exact path="/posts" element={<Posts/>}/>
-                    <Route exact path="/posts/:id" element={<PostIdPage/>}/>
-                    <Route path="/about" element={<About/>}/>
-                    <Route path="/*" element={<h1>Такой страницы не существует</h1>}/>
-                </Routes>
+            <Routes>
+            {routers.map(route =>
+
+                <Route
+                    path={route.path}
+                    element={route.component}
+                    exact={route.exact}
+                />
+            )}
+            </Routes>
 
         </BrowserRouter>
     )
