@@ -1,8 +1,9 @@
 import About from "../pages/About";
 import Posts from "../pages/Posts";
 import PostIdPage from "../pages/PostIdPage";
+import Login from "../pages/Login";
 
-export const routers = [
+export const privateRouters = [
     {
         path: '/about', component: <About/>, exact: true
     },
@@ -11,5 +12,10 @@ export const routers = [
     },
     {
         path: '/posts/:id', component: <PostIdPage/>, exact: true
+    }
+]
+export const publicRouters = [
+    {
+        path: '/login', component: <Login/>, exact: true
     }
 ]
